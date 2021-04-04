@@ -1,9 +1,10 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 
 const app = express();
-const port = 3000;
-const mongoURL = 'mongodb://127.0.0.1/todo';
+const port = process.env.PORT || 3000;
+const mongoURL = process.env.MONGO_URL || 'mongodb://127.0.0.1/todo';
 const mongoArgs = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -21,7 +22,7 @@ app.use('/', homeRoute);
 app.use('/add', addRoute);
 app.use('/delete', deleteRoute);
 
-mongoose.connect(mongoURL, mongoArgs, async (error) => {
+mongoose.connect(mongoURL, mongoArgs, (error) => {
     if (error) {
         return console.error(`Error to connect to DB.`);
     }

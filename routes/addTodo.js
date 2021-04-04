@@ -4,8 +4,10 @@ const Task = require('../schema/taskSchema');
 const router = express.Router();
 
 router.post('', async (req, res) => {
+    let taskContent;
+
     try {
-        await Task.create({ content: req.body.task, });
+        taskContent = await Task.create({ content: req.body.task, });
     } catch (error) {
         res.json({
             error,

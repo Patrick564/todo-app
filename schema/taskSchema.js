@@ -6,7 +6,7 @@ const taskSchema = mongoose.Schema({
     status: { type: Boolean, default: false },
 },
 {
-    collection: 'task'
+    collection: 'tasks'
 });
 
 module.exports = mongoose.model('Task', taskSchema);

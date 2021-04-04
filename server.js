@@ -5,7 +5,9 @@ const app = express();
 const port = 3000;
 const mongoURL = 'mongodb://127.0.0.1/todo';
 const mongoArgs = {
-    useNewUrlParser: true, useUnifiedTopology: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
 }
 
 let homeRoute = require('./routes/home');
@@ -21,10 +23,10 @@ app.use('/delete', deleteRoute);
 
 mongoose.connect(mongoURL, mongoArgs, async (error) => {
     if (error) {
-        console.error(`Error to connect to DB.`);
-    } else {
-        console.log('MongoDB connected successfully.');
+        return console.error(`Error to connect to DB.`);
     }
+
+    console.log('MongoDB connected successfully.');
 })
 
 app.listen(port, () => {

@@ -16,9 +16,11 @@ let homeRoute = require('./routes/home');
 let addRoute = require('./routes/addTodo');
 let deleteRoute = require('./routes/deleteTodo');
 
+app.options('*', cors());
+
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors());
 
 app.use('/', homeRoute);
 app.use('/add', addRoute);

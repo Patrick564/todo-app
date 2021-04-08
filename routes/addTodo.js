@@ -7,7 +7,7 @@ router.post('', async (req, res) => {
     let taskContent;
 
     try {
-        taskContent = await Task.create({ content: req.body.task, });
+        taskContent = await Task.create({ content: req.body.content });
     } catch (error) {
         res.json({
             error,

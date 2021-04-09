@@ -4,7 +4,7 @@
 }
 
 #header {
-    background-color: #68DDF0;
+    background-color: #34B0C6;
     display: flex;
     justify-content: center;
 }
@@ -15,14 +15,31 @@
 }
 
 #addButton > input {
-    border-color: red;
-    border-radius: 8px;
+    border: solid #6C80D8 2px;
+    border-radius: 4px;
+    margin: 0rem 0.5rem;
     padding: 0.3rem 0.2rem;
 }
 
+#addButton > input:focus {
+    border: solid #344FC5 0.13rem;
+    box-shadow: 0 0 0 1px #344FC5;
+    outline:none;
+}
+
 #addButton > button {
-    border-radius: 8px;
+    background-color: #405ACC;
+    border: solid #405ACC 0.13rem;
+    border-radius: 4px;
+    color: white;
+    margin: 0rem 0.5rem;
     padding: 0.3rem 0.2rem;
+}
+
+#addButton > button:focus {
+    border: solid #344FC5 0.13rem;
+    box-shadow: 0 0 0 1px #344FC5;
+    outline:none;
 }
 
 #list {
@@ -33,8 +50,8 @@
 }
 
 #task {
-    background-color: #79A3FF;
-    border: 2px solid #79A3FF;
+    background-color: #34C57B;
+    border: 2px solid #34C57B;
     border-radius: 4px;
     padding: 0.5rem;
     margin: 0.5rem;
@@ -45,7 +62,18 @@
 }
 
 #task > button {
+    background-color: #FF4F4F;
+    border: solid #FF4F4F 0.13rem;
+    border-radius: 4px;
+    color: white;
+    margin: 0.2rem 0.3rem;
     padding: 0.2rem 0.3rem;
+}
+
+#task > button:focus {
+    border: solid #FF3F3F 0.13rem;
+    box-shadow: 0 0 0 1px #FF3F3F;
+    outline:none;
 }
 
 @media (max-width: 800px) {

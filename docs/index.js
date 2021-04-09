@@ -1,8 +1,19 @@
 async function getTaskList() {
     let response = await fetch('https://todo-app-ex.herokuapp.com/');
     let data = await response.json();
+    let divList = document.getElementById('list')
+    let tasks = '';
 
-    return data.tasks;
+    for (task of data.tasks) {
+        tasks += `
+            <div id="task" name="${task._id}">
+                <p>${task.content}</p>
+                <button value="${task._id}" onclick="deleteTask(this.value)">Delete</button>
+            </div>
+        `
+    };
+
+    divList.innerHTML = tasks;
 }
 
 async function createTask() {
@@ -15,13 +26,11 @@ async function createTask() {
             'Content-Type': 'application/json',
         },
     };
-    let response = await fetch('https://todo-app-ex.herokuapp.com/add', data);
-
+    
+    await fetch('https://todo-app-ex.herokuapp.com/add', data);
     content.value = '';
 
-    taskList();
-
-    return response;
+    getTaskList();
 }
 
 async function deleteTask(id) {
@@ -36,26 +45,7 @@ async function deleteTask(id) {
     
     await fetch('https://todo-app-ex.herokuapp.com/delete', data);
 
-    taskList();
+    getTaskList();
 }
 
-async function taskList() {
-    let taskList = await getTaskList();
-    let divList = document.getElementById('list')
-    let tasks = '';
-
-    for (task of taskList) {
-        tasks += `
-            <div id="task" name="${task._id}">
-                <p>${task.content}</p>
-                <button value="${task._id}" onclick="deleteTask(this.value)">Delete</button>
-            </div>
-        `
-    };
-
-    divList.innerHTML = tasks;
-}
-
-document.getElementById('')
-
-taskList();
+document.onload = getTaskList();

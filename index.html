@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
     <title>Document</title>
 </head>
 <body>
     <header id="header">
-        <div>
-            <div>
+        <nav id="navbar">
+            <div id="addButton">
                 <input type="text" name="content" id="content" placeholder="New task...">
                 <button type="button" onclick="createTask()">
                     Add
                 </button>
             </div>
-        </div>
+        </nav>
     </header>
 
     <main id="main">
@@ -23,6 +24,6 @@
         </div>
     </main>
 
-    <script async src="index.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>

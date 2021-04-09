@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    background-color: #68DDF0;
+    display: flex;
+    justify-content: center;
+}
+
+#navbar {
+    margin: 0.5rem;
+    padding: 0.3rem;
+}
+
+#addButton > input {
+    border-color: red;
+    border-radius: 8px;
+    padding: 0.3rem 0.2rem;
+}
+
+#addButton > button {
+    border-radius: 8px;
+    padding: 0.3rem 0.2rem;
+}
+
+#list {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 30%;
+    padding: 0.5rem;
+}
+
+#task {
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border: 1px solid red;
+}
+
+@media (max-width: 800px) {
+    #list {
+        margin: 1rem 5%;
+    }
+}

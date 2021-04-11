@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const compression = require('compression');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -19,6 +20,7 @@ let deleteRoute = require('./routes/deleteTodo');
 app.options('*', cors());
 
 app.use(cors());
+app.use(compression());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

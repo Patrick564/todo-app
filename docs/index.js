@@ -26,6 +26,12 @@ async function createTask() {
             'Content-Type': 'application/json',
         },
     };
+
+    if (content.value.trim() === '') {
+        content.value = '';
+
+        return;
+    }
     
     await fetch('https://todo-app-ex.herokuapp.com/add', data);
     content.value = '';
